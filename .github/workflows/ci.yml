@@ -37,7 +37,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json') }}-
 
-      - run: npx prisma generate --if-present
+      # Solo ejecuta prisma si existe la carpeta prisma
+      - name: Generate Prisma Client
+        if: hashFiles('prisma/schema.prisma') != ''
+        run: npx prisma generate
+
       - run: npm run build --if-present
 
   test:
@@ -68,8 +72,14 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
-      - run: npx prisma generate --if-present
+      
+      - name: Generate Prisma Client
+        if: hashFiles('prisma/schema.prisma') != ''
+        run: npx prisma generate
+
       - name: Run Migrations (Deploy)
         if: hashFiles('prisma/migrations/**') != ''
         run: npx prisma migrate deploy
+
+      # Corregido: sin la "s" al final
       - run: npm test --if-present
