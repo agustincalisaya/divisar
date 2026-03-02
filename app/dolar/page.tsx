@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Header } from "../../components/shared/header";
 import { Dolar } from "@/types/dolar";
+import { Conversor } from "@/components/dolar/conversor";
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -121,14 +122,11 @@ export default async function DolarPage() {
           )}
         </section>
 
-        {/* SECCIÓN: COTIZACIONES (Conversor) */}
+{/* SECCIÓN: COTIZACIONES (Conversor) */}
         <section className="space-y-4 pb-12">
           <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
-          <Card className="p-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-muted-foreground">
-              <p>Herramienta de Conversión (Próximamente)</p>
-            </div>
-          </Card>
+          {/* Llamamos a nuestro nuevo super-componente interactivo */}
+          <Conversor dolares={dolares} />
         </section>
 
       </div>
