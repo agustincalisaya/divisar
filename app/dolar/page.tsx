@@ -2,8 +2,9 @@ import { getDolares } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Header } from "../../components/shared/header";
+import { Dolar } from "@/types/dolar"; // <-- 1. IMPORTAMOS TU INTERFACE
 
-// Función auxiliar para formatear la fecha como pide tu diseño
+// Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
   if (!fechaISO) return "Fecha no disponible";
   const fecha = new Date(fechaISO);
@@ -19,14 +20,16 @@ const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
 export default async function DolarPage() {
-  const dolares = await getDolares();
+  // 2. LE DECIMOS A TYPESCRIPT QUE ESTO ES UN ARRAY DE DOLARES
+  const dolares: Dolar[] = await getDolares();
 
-  // 1. Extraemos los dólares principales
-  const oficial = dolares.find((d: any) => d.casa === "oficial");
-  const blue = dolares.find((d: any) => d.casa === "blue");
+  // Extraccion de Dolares
+  // 3. REEMPLAZAMOS EL "any" POR "Dolar"
+  const oficial = dolares.find((d: Dolar) => d.casa === "oficial");
+  const blue = dolares.find((d: Dolar) => d.casa === "blue");
   
-  // 2. Filtramos el resto para la grilla de "Otros Tipos"
-  const otrosDolares = dolares.filter((d: any) => !["oficial", "blue"].includes(d.casa));
+  // Filtro
+  const otrosDolares = dolares.filter((d: Dolar) => !["oficial", "blue"].includes(d.casa));
 
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto">
@@ -91,7 +94,7 @@ export default async function DolarPage() {
           <h2 className="text-xl font-bold">Otros Tipos de Dólar</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {otrosDolares.map((dolar: any) => (
+            {otrosDolares.map((dolar: Dolar) => (
               <Card key={dolar.casa} className="hover:shadow-md transition-shadow">
                 <CardHeader className="pb-2">
                   <CardTitle className="text-lg uppercase">Dólar {dolar.nombre}</CardTitle>
