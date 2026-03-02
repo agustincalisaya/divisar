@@ -1,4 +1,4 @@
-import { Header } from "@/components/dashboard/header";
+import { Header } from "@/components/shared/header";
 
 export default async function Home() {
 
