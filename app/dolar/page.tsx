@@ -1,9 +1,10 @@
-import { getDolares } from "@/lib/api";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Header } from "../../components/shared/header";
+import { getDolares, getHistorialDolar } from "@/lib/api";
 import { Dolar } from "@/types/dolar";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Header } from "../../components/shared/header";
 import { Conversor } from "@/components/dolar/conversor";
+import { HistoryChart } from "@/components/dolar/history-chart";
+import { CotizarButton } from "@/components/dolar/cotizar-button"; // <-- IMPORTAMOS EL NUEVO BOTÓN
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -21,7 +22,11 @@ const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
 export default async function DolarPage() {
-  const dolares: Dolar[] = await getDolares();
+  const [dolares, historialOficial, historialBlue] = await Promise.all([
+    getDolares(),
+    getHistorialDolar("oficial"),
+    getHistorialDolar("blue"),
+  ]);
 
   // Extracción de Dólares
   const oficial = dolares.find((d: Dolar) => d.casa === "oficial");
@@ -44,7 +49,10 @@ export default async function DolarPage() {
           <section className="space-y-4">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold uppercase">Dólar Oficial</h2>
-              <Button variant="outline">COTIZAR</Button>
+              
+              {/* ACÁ PONEMOS EL NUEVO BOTÓN CON SCROLL ANIMADO */}
+              <CotizarButton />
+              
             </div>
             
             <div className="flex gap-8 mb-4">
@@ -58,10 +66,8 @@ export default async function DolarPage() {
               </div>
             </div>
 
-            <Card className="h-80 flex flex-col items-center justify-center border-2 border-dashed">
-              <p className="text-muted-foreground">Gráfico de la variación del precio del DÓLAR OFICIAL... (Próximamente)</p>
-              <p className="font-bold mt-4 text-[#059669] dark:text-[#10B981]">X% (Crecimiento)</p>
-            </Card>
+            <HistoryChart data={historialOficial} tipo="Oficial" />
+
             <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(oficial.fechaActualizacion)}</p>
           </section>
         )}
@@ -82,10 +88,8 @@ export default async function DolarPage() {
               </div>
             </div>
 
-            <Card className="h-80 flex flex-col items-center justify-center border-2 border-dashed">
-              <p className="text-muted-foreground">Gráfico de la variación del precio del DÓLAR BLUE... (Próximamente)</p>
-              <p className="font-bold mt-4 text-[#059669] dark:text-[#10B981]">X% (Crecimiento)</p>
-            </Card>
+            <HistoryChart data={historialBlue} tipo="Blue" />
+
             <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(blue.fechaActualizacion)}</p>
           </section>
         )}
@@ -114,7 +118,6 @@ export default async function DolarPage() {
               </Card>
             ))}
           </div>
-          {/* Mostramos la fecha del primer elemento para no repetirla en cada tarjeta */}
           {otrosDolares.length > 0 && (
             <p className="text-xs text-muted-foreground mt-2">
               Última actualización el {formatFecha(otrosDolares[0].fechaActualizacion)}
@@ -122,10 +125,9 @@ export default async function DolarPage() {
           )}
         </section>
 
-{/* SECCIÓN: COTIZACIONES (Conversor) */}
-        <section className="space-y-4 pb-12">
+        {/* SECCIÓN: COTIZACIONES (Conversor) */}
+        <section id="cotizaciones" className="space-y-4 pb-12 scroll-mt-6">
           <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
-          {/* Llamamos a nuestro nuevo super-componente interactivo */}
           <Conversor dolares={dolares} />
         </section>
 
