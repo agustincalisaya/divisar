@@ -2,7 +2,7 @@ import { getDolares } from "@/lib/api";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Header } from "../../components/shared/header";
-import { Dolar } from "@/types/dolar"; // <-- 1. IMPORTAMOS TU INTERFACE
+import { Dolar } from "@/types/dolar";
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -20,16 +20,18 @@ const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
 export default async function DolarPage() {
-  // 2. LE DECIMOS A TYPESCRIPT QUE ESTO ES UN ARRAY DE DOLARES
   const dolares: Dolar[] = await getDolares();
 
-  // Extraccion de Dolares
-  // 3. REEMPLAZAMOS EL "any" POR "Dolar"
+  // Extracción de Dólares
   const oficial = dolares.find((d: Dolar) => d.casa === "oficial");
   const blue = dolares.find((d: Dolar) => d.casa === "blue");
-  
-  // Filtro
-  const otrosDolares = dolares.filter((d: Dolar) => !["oficial", "blue"].includes(d.casa));
+  const tarjeta = dolares.find((d: Dolar) => d.casa === "tarjeta");
+  const bolsa = dolares.find((d: Dolar) => d.casa === "bolsa");
+  const cripto = dolares.find((d: Dolar) => d.casa === "cripto");
+  const mayorista = dolares.find((d: Dolar) => d.casa === "mayorista");
+  const mep = bolsa ? { ...bolsa, nombre: "MEP" } : undefined;
+
+  const otrosDolares = [tarjeta, mep, cripto, mayorista].filter(Boolean) as Dolar[];
 
   return (
     <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto">
@@ -56,7 +58,6 @@ export default async function DolarPage() {
             </div>
 
             <Card className="h-80 flex flex-col items-center justify-center border-2 border-dashed">
-              {/* Acá irá el componente de Recharts */}
               <p className="text-muted-foreground">Gráfico de la variación del precio del DÓLAR OFICIAL... (Próximamente)</p>
               <p className="font-bold mt-4 text-[#059669] dark:text-[#10B981]">X% (Crecimiento)</p>
             </Card>
@@ -81,7 +82,6 @@ export default async function DolarPage() {
             </div>
 
             <Card className="h-80 flex flex-col items-center justify-center border-2 border-dashed">
-              {/* Acá irá el componente de Recharts */}
               <p className="text-muted-foreground">Gráfico de la variación del precio del DÓLAR BLUE... (Próximamente)</p>
               <p className="font-bold mt-4 text-[#059669] dark:text-[#10B981]">X% (Crecimiento)</p>
             </Card>
@@ -113,7 +113,7 @@ export default async function DolarPage() {
               </Card>
             ))}
           </div>
-          {/* Mostramos la fecha del primer elemento de "otros" ya que suelen actualizarse juntos */}
+          {/* Mostramos la fecha del primer elemento para no repetirla en cada tarjeta */}
           {otrosDolares.length > 0 && (
             <p className="text-xs text-muted-foreground mt-2">
               Última actualización el {formatFecha(otrosDolares[0].fechaActualizacion)}
@@ -126,7 +126,6 @@ export default async function DolarPage() {
           <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
           <Card className="p-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-muted-foreground">
-              {/* Acá irá el componente interactivo del conversor */}
               <p>Herramienta de Conversión (Próximamente)</p>
             </div>
           </Card>
