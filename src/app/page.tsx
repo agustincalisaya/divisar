@@ -28,16 +28,6 @@ export default function HomePage() {
       <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-12 md:py-20 flex flex-col items-center relative z-10">
         
         <div className="flex flex-col items-center text-center space-y-6">
-          <div className="p-4 bg-white dark:bg-slate-900 rounded-3xl shadow-xl shadow-cyan-900/5 border border-slate-100 dark:border-slate-800">
-            <Image
-              src="/logo.png"
-              alt="Logo DivisAR"
-              width={72}
-              height={72}
-              className="rounded-2xl"
-              priority
-            />
-          </div>
 
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight transition-colors duration-300">
             Bienvenidos a DivisAR
@@ -46,6 +36,7 @@ export default function HomePage() {
           <p className="text-base md:text-lg text-slate-600 dark:text-slate-400 max-w-xl transition-colors duration-300">
             Aquí podrás encontrar las Cotizaciones de Dólar, Euro y Real en tiempo real con respecto al Peso Argentino.
           </p>
+          
         </div>
 
         <div className="mt-16 w-full flex flex-col md:flex-row items-center justify-center gap-12 md:gap-24">

@@ -8,7 +8,6 @@ import { CotizarButton } from "@/src/components/dolar/cotizar-button";
 import { Footer } from "@/src/components/shared/footer";
 import { Header } from "@/src/components/shared/header";
 
-// Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
   if (!fechaISO) return "Fecha no disponible";
   const fecha = new Date(fechaISO);
@@ -19,7 +18,6 @@ function formatFecha(fechaISO: string) {
   }).format(fecha) + " hs UTC-3 - Argentina";
 }
 
-// Función auxiliar para formatear moneda
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
@@ -30,7 +28,6 @@ export default async function DolarPage() {
     getHistorialDolar("blue"),
   ]);
 
-  // Extracción de Dólares
   const oficial = dolares.find((d: Dolar) => d.casa === "oficial");
   const blue = dolares.find((d: Dolar) => d.casa === "blue");
   const tarjeta = dolares.find((d: Dolar) => d.casa === "tarjeta");
