@@ -8,7 +8,33 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: "DivisAR - Cotizaciones en tiempo real",
-  description: "Dashboard financiero con cotizaciones de divisas en Argentina",
+  description: "Tu herramienta definitiva para seguir las cotizaciones del Dólar (Blue, Oficial, MEP), Euro y Real, y realizar conversiones en tiempo real en Argentina.",
+  keywords: ["dólar", "dolar blue", "euro", "real", "cotización", "argentina", "divisas", "dolar mep", "convertidor"],
+  authors: [{ name: "Daniel Agustin Calisaya" }],
+  
+  openGraph: {
+    title: "DivisAR | Cotizaciones de Divisas en Argentina",
+    description: "Seguí en tiempo real la cotización del Dólar, Euro y Real. Convertidor de monedas actualizado al instante.",
+    url: "https://divisar.vercel.app",
+    siteName: "DivisAR",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Vista previa del dashboard de DivisAR",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "DivisAR | Cotizaciones en tiempo real",
+    description: "Seguí en tiempo real la cotización del Dólar, Euro y Real en Argentina.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
