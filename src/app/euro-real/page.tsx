@@ -4,7 +4,6 @@ import { HistoryChart } from "@/src/components/dolar/history-chart";
 import { Header } from "@/src/components/shared/header";
 import { Footer } from "@/src/components/shared/footer";
 
-// Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
   if (!fechaISO) return "Fecha no disponible";
   const fecha = new Date(fechaISO);
@@ -15,12 +14,10 @@ function formatFecha(fechaISO: string) {
   }).format(fecha) + " hs UTC-3 - Argentina";
 }
 
-// Función auxiliar para formatear moneda
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
 export default async function EuroRealPage() {
-  // Hacemos las 4 peticiones a la API EN PARALELO para máxima velocidad
   const [euro, real, historialEuro, historialReal] = await Promise.all([
     getCotizacion("eur"),
     getCotizacion("brl"),
