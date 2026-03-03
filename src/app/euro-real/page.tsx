@@ -1,7 +1,8 @@
-import { getCotizacion, getHistorialCotizacion } from "@/lib/api";
-import { MiniConversor } from "@/components/euro-real/mini-conversor";
-import { HistoryChart } from "@/components/dolar/history-chart"; // ¡Reutilizamos el gráfico!
-import { Header } from "@/components/shared/header";
+import { getCotizacion, getHistorialCotizacion } from "@/src/lib/api";
+import { MiniConversor } from "@/src/components/euro-real/mini-conversor";
+import { HistoryChart } from "@/src/components/dolar/history-chart"; 
+import { Header } from "@/src/components/shared/header";
+import { Footer } from "@/src/components/shared/footer";
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -105,6 +106,9 @@ export default async function EuroRealPage() {
 
         </div>
       </main>
+
+      <Footer />
+
     </div>
   );
 }

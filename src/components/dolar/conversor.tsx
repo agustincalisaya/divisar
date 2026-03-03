@@ -2,17 +2,17 @@
 
 import { useState } from "react";
 import { ArrowRightLeft } from "lucide-react";
-import { Dolar } from "@/types/dolar";
-import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Dolar } from "@/src/types/dolar";
+import { Card } from "@/src/components/ui/card";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select";
+} from "@/src/components/ui/select";
 
 interface ConversorProps {
   dolares: Dolar[];
