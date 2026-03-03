@@ -13,6 +13,10 @@ export default async function LegalesPage() {
       <main className="flex-1 px-4 pt-8 pb-16 md:px-8 md:pt-12 max-w-4xl mx-auto w-full">
         <div className="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 transition-colors duration-300">
           
+          <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-[20%] right-[-5%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-[50%] right-[50%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+
           <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-8 transition-colors duration-300">
             Aviso Legal
           </h1>
@@ -42,7 +46,6 @@ export default async function LegalesPage() {
         </div>
       </main>
 
-      {/* --- Footer --- */}
       <Footer />
     </div>
   );

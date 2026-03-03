@@ -15,7 +15,6 @@ export function MiniConversor({ moneda, tasa }: MiniConversorProps) {
   const [origen, setOrigen] = useState<"ext" | "ars">("ext");
   const [invertido, setInvertido] = useState<boolean>(false);
 
-  // Lógica bi-direccional
   let valorExt = "";
   let valorArs = "";
 
@@ -34,7 +33,6 @@ export function MiniConversor({ moneda, tasa }: MiniConversorProps) {
       <h3 className="text-sm font-bold uppercase text-muted-foreground">Cotización</h3>
       
       <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-        {/* Lado Izquierdo */}
         <div className="w-full md:w-2/5 space-y-2">
           <div className="h-10 flex items-center justify-center border rounded-md bg-slate-50 dark:bg-zinc-950 text-muted-foreground font-medium uppercase">
             {invertido ? "ARS" : moneda}
@@ -54,7 +52,6 @@ export function MiniConversor({ moneda, tasa }: MiniConversorProps) {
           </div>
         </div>
 
-        {/* Botón Invertir */}
         <Button
           variant="ghost"
           size="icon"
@@ -64,7 +61,6 @@ export function MiniConversor({ moneda, tasa }: MiniConversorProps) {
           <ArrowRightLeft className="w-5 h-5 text-primary" />
         </Button>
 
-        {/* Lado Derecho */}
         <div className="w-full md:w-2/5 space-y-2">
           <div className="h-10 flex items-center justify-center border rounded-md bg-slate-50 dark:bg-zinc-950 text-muted-foreground font-medium uppercase">
             {invertido ? moneda : "ARS"}
