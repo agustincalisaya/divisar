@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Header } from "../../components/shared/header";
 import { Conversor } from "@/components/dolar/conversor";
 import { HistoryChart } from "@/components/dolar/history-chart";
-import { CotizarButton } from "@/components/dolar/cotizar-button"; // <-- IMPORTAMOS EL NUEVO BOTÓN
+import { CotizarButton } from "@/components/dolar/cotizar-button";
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -40,98 +40,107 @@ export default async function DolarPage() {
   const otrosDolares = [tarjeta, mep, cripto, mayorista].filter(Boolean) as Dolar[];
 
   return (
-    <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto">
-      <Header />
+    <div className="min-h-screen flex flex-col">
 
-      <div className="space-y-12">
-        {/* SECCIÓN: DÓLAR OFICIAL */}
-        {oficial && (
-          <section className="space-y-4">
-            <div className="flex justify-between items-center">
-              <h2 className="text-2xl font-bold uppercase">Dólar Oficial</h2>
-              
-              {/* ACÁ PONEMOS EL NUEVO BOTÓN CON SCROLL ANIMADO */}
-              <CotizarButton />
-              
-            </div>
-            
-            <div className="flex gap-8 mb-4">
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
-                <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(oficial.compra)}</span>
-              </div>
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
-                <span className="text-2xl font-bold">{formatCurrency(oficial.venta)}</span>
-              </div>
-            </div>
-
-            <HistoryChart data={historialOficial} tipo="Oficial" />
-
-            <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(oficial.fechaActualizacion)}</p>
-          </section>
-        )}
-
-        {/* SECCIÓN: DÓLAR BLUE */}
-        {blue && (
-          <section className="space-y-4">
-            <h2 className="text-2xl font-bold uppercase">Dólar Blue</h2>
-            
-            <div className="flex gap-8 mb-4">
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
-                <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(blue.compra)}</span>
-              </div>
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
-                <span className="text-2xl font-bold">{formatCurrency(blue.venta)}</span>
-              </div>
-            </div>
-
-            <HistoryChart data={historialBlue} tipo="Blue" />
-
-            <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(blue.fechaActualizacion)}</p>
-          </section>
-        )}
-
-        {/* SECCIÓN: OTROS TIPOS DE DÓLAR */}
-        <section className="space-y-4">
-          <h2 className="text-xl font-bold">Otros Tipos de Dólar</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {otrosDolares.map((dolar: Dolar) => (
-              <Card key={dolar.casa} className="hover:shadow-md transition-shadow">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg uppercase">Dólar {dolar.nombre}</CardTitle>
-                  <p className="text-xs text-muted-foreground">1 USD {dolar.nombre.toUpperCase()}</p>
-                </CardHeader>
-                <CardContent className="flex justify-between items-center mt-2">
-                  <div className="flex flex-col">
-                    <span className="text-xs font-semibold uppercase text-muted-foreground">Compra</span>
-                    <span className="text-lg font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(dolar.compra)}</span>
-                  </div>
-                  <div className="flex flex-col text-right">
-                    <span className="text-xs font-semibold uppercase text-muted-foreground">Venta</span>
-                    <span className="text-lg font-bold">{formatCurrency(dolar.venta)}</span>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-          {otrosDolares.length > 0 && (
-            <p className="text-xs text-muted-foreground mt-2">
-              Última actualización el {formatFecha(otrosDolares[0].fechaActualizacion)}
-            </p>
-          )}
-        </section>
-
-        {/* SECCIÓN: COTIZACIONES (Conversor) */}
-        <section id="cotizaciones" className="space-y-4 pb-12 scroll-mt-6">
-          <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
-          <Conversor dolares={dolares} />
-        </section>
-
+      <div className="w-full bg-white dark:bg-[#111827] border-b shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+          <Header />
+        </div>
       </div>
-    </main>
+
+      <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
+        <div className="space-y-12">
+          
+          {/* DÓLAR OFICIAL */}
+
+          {oficial && (
+            <section className="space-y-4">
+              <div className="flex justify-between items-center">
+                <h2 className="text-2xl font-bold uppercase">Dólar Oficial</h2>
+                <CotizarButton />
+              </div>
+              
+              <div className="flex gap-8 mb-4">
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
+                  <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(oficial.compra)}</span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
+                  <span className="text-2xl font-bold">{formatCurrency(oficial.venta)}</span>
+                </div>
+              </div>
+
+              <HistoryChart data={historialOficial} tipo="Oficial" />
+
+              <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(oficial.fechaActualizacion)}</p>
+            </section>
+          )}
+
+          {/* DÓLAR BLUE */}
+
+          {blue && (
+            <section className="space-y-4">
+              <h2 className="text-2xl font-bold uppercase">Dólar Blue</h2>
+              
+              <div className="flex gap-8 mb-4">
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
+                  <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(blue.compra)}</span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
+                  <span className="text-2xl font-bold">{formatCurrency(blue.venta)}</span>
+                </div>
+              </div>
+
+              <HistoryChart data={historialBlue} tipo="Blue" />
+
+              <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(blue.fechaActualizacion)}</p>
+            </section>
+          )}
+
+          {/* OTROS TIPOS DE DÓLAR */}
+
+          <section className="space-y-4">
+            <h2 className="text-xl font-bold">Otros Tipos de Dólar</h2>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {otrosDolares.map((dolar: Dolar) => (
+                <Card key={dolar.casa} className="hover:shadow-md transition-shadow">
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-lg uppercase">Dólar {dolar.nombre}</CardTitle>
+                    <p className="text-xs text-muted-foreground">1 USD {dolar.nombre.toUpperCase()}</p>
+                  </CardHeader>
+                  <CardContent className="flex justify-between items-center mt-2">
+                    <div className="flex flex-col">
+                      <span className="text-xs font-semibold uppercase text-muted-foreground">Compra</span>
+                      <span className="text-lg font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(dolar.compra)}</span>
+                    </div>
+                    <div className="flex flex-col text-right">
+                      <span className="text-xs font-semibold uppercase text-muted-foreground">Venta</span>
+                      <span className="text-lg font-bold">{formatCurrency(dolar.venta)}</span>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            {otrosDolares.length > 0 && (
+              <p className="text-xs text-muted-foreground mt-2">
+                Última actualización el {formatFecha(otrosDolares[0].fechaActualizacion)}
+              </p>
+            )}
+          </section>
+
+          {/* COTIZACIONES */}
+          
+          <section id="cotizaciones" className="space-y-4 pb-12 scroll-mt-24">
+            <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
+            <Conversor dolares={dolares} />
+          </section>
+
+        </div>
+      </main>
+    </div>
   );
 }
