@@ -40,15 +40,17 @@ export default async function EuroRealPage() {
 
       <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
 
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[30%] right-[-5%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-20%] right-[90%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-60%] right-[-10%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+
         <div className="space-y-12"> 
           
-          {/* EURO*/}
-
           {euro && (
             <section id="euro" className="space-y-6 scroll-mt-6">
               <h2 className="text-2xl font-bold uppercase">Euro</h2>
               
-              {/* Precios Compra/Venta */}
               <div className="flex gap-8">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
@@ -60,10 +62,8 @@ export default async function EuroRealPage() {
                 </div>
               </div>
 
-              {/* Mini Conversor Integrado */}
               <MiniConversor moneda="EUR" tasa={euro.venta} />
 
-              {/* Gráfico Histórico */}
               <HistoryChart data={historialEuro} tipo="Euro" />
 
               <p className="text-xs text-muted-foreground">
@@ -74,13 +74,10 @@ export default async function EuroRealPage() {
 
           <hr className="border-border" />
 
-          {/* REAL */}
-          
           {real && (
             <section id="real" className="space-y-6 scroll-mt-6">
               <h2 className="text-2xl font-bold uppercase">Real</h2>
               
-              {/* Precios Compra/Venta */}
               <div className="flex gap-8">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
@@ -92,10 +89,8 @@ export default async function EuroRealPage() {
                 </div>
               </div>
 
-              {/* Mini Conversor Integrado */}
               <MiniConversor moneda="REAL" tasa={real.venta} />
 
-              {/* Gráfico Histórico */}
               <HistoryChart data={historialReal} tipo="Real" />
 
               <p className="text-xs text-muted-foreground">

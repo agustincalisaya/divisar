@@ -7,11 +7,10 @@ export function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
-        <footer className="w-full bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 mt-auto transition-colors duration-300">
+        <footer className="w-full border-t border-slate-200 dark:border-slate-800 mt-auto transition-colors duration-300">
             <div className="max-w-7xl mx-auto px-6 py-10">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     
-                    {/* Columna 1: El Sistema (DivisAR) */}
                     <div className="space-y-3">
                         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 transition-colors duration-300">
                             <Image
@@ -23,16 +22,12 @@ export function Footer() {
                                 priority
                             />
                             <LogoLight />
-                            <span className="text-xs bg-cyan-100 dark:bg-cyan-900/40 text-cyan-700 dark:text-cyan-300 px-2 py-0.5 rounded-full font-medium transition-colors duration-300">
-                                v1.0.0
-                            </span>
                         </h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-xs transition-colors duration-300">
                             Tu herramienta definitiva para seguir las cotizaciones y realizar conversiones en tiempo real.
                         </p>
                     </div>
 
-                    {/* Columna 2: Enlaces Rápidos */}
                     <div className="space-y-3">
                         <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider transition-colors duration-300">
                             Avisos
@@ -49,14 +44,13 @@ export function Footer() {
                         </ul>
                     </div>
 
-                    {/* Columna 3: Desarrollador */}
                     <div className="space-y-4">
                         <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider flex items-center gap-2 transition-colors duration-300">
                             <Code2 size={16} className="text-cyan-600 dark:text-cyan-400" />
                             Desarrollado por
                         </h4>
 
-                        <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-lg border border-slate-100 dark:border-slate-800 shadow-sm transition-colors duration-300">
+                        <div className="bg-slate-50 dark:bg-[#0F172A] p-4 rounded-lg border border-slate-100 dark:border-slate-800 shadow-sm transition-colors duration-300">
                             <div className="flex items-center gap-3">
                                 <div>
                                     <p className="font-bold text-slate-800 dark:text-slate-100 leading-tight transition-colors duration-300">
@@ -91,7 +85,6 @@ export function Footer() {
                 </div>
             </div>
 
-            {/* --- Parte Inferior: Copyright --- */}
             <div className="border-t border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
                 <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-center">
                     <p className="text-xs text-slate-500 dark:text-slate-400 text-center transition-colors duration-300">

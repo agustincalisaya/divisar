@@ -51,9 +51,13 @@ export default async function DolarPage() {
       </div>
 
       <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
-        <div className="space-y-12">
+        
+        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[20%] right-[-5%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-80%] right-[90%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-[-110%] right-[-10%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-          {/* DÓLAR OFICIAL */}
+        <div className="space-y-12">
 
           {oficial && (
             <section className="space-y-4">
@@ -79,8 +83,6 @@ export default async function DolarPage() {
             </section>
           )}
 
-          {/* DÓLAR BLUE */}
-
           {blue && (
             <section className="space-y-4">
               <h2 className="text-2xl font-bold uppercase">Dólar Blue</h2>
@@ -101,8 +103,6 @@ export default async function DolarPage() {
               <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(blue.fechaActualizacion)}</p>
             </section>
           )}
-
-          {/* OTROS TIPOS DE DÓLAR */}
 
           <section className="space-y-4">
             <h2 className="text-xl font-bold">Otros Tipos de Dólar</h2>
@@ -133,8 +133,6 @@ export default async function DolarPage() {
               </p>
             )}
           </section>
-
-          {/* COTIZACIONES */}
 
           <section id="cotizaciones" className="space-y-4 pb-12 scroll-mt-24">
             <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>

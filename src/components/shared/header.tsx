@@ -5,12 +5,10 @@ import LogoLight from "./LogoLight";
 
 export function Header() {
   return (
-    <header className="flex justify-between items-center w-full">
-      {/* Logo recreado con tipografía */}
+    <header className="flex justify-between items-center w-full ">
       <LogoLight />
       
-      {/* Navegación y Acciones */}
-      <div className="flex items-center gap-2 sm:gap-4">
+      <div className="flex items-center gap-2 sm:gap-4 ">
         <nav className="hidden sm:flex gap-2">
           <Button variant="ghost" asChild className="rounded-xl border shadow-sm">
             <Link href="/dolar">Dólar</Link>
@@ -23,10 +21,8 @@ export function Header() {
           </Button>
         </nav>
 
-        {/* Separador Vertical */}
         <div className="hidden sm:block w-px h-6 bg-border mx-2"></div>
 
-        {/* Botón de Modo Oscuro */}
         <ThemeToggle />
       </div>
     </header>

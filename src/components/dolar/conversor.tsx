@@ -19,18 +19,15 @@ interface ConversorProps {
 }
 
 export function Conversor({ dolares }: ConversorProps) {
-  // "monto" guarda el número que está escribiendo el usuario
   const [monto, setMonto] = useState<string>("100");
-  // "origen" guarda de qué lado escribió (para saber cómo calcular el otro lado)
   const [origen, setOrigen] = useState<"usd" | "ars">("usd");
   
   const [tipoSeleccionado, setTipoSeleccionado] = useState<string>("blue");
-  const [invertido, setInvertido] = useState<boolean>(false); // false: USD(izq) a ARS(der)
+  const [invertido, setInvertido] = useState<boolean>(false);
 
   const dolarActual = dolares.find((d) => d.casa === tipoSeleccionado) || dolares[0];
   const tasa = dolarActual?.venta || 1;
 
-  // MAGIA BI-DIRECCIONAL: Calculamos ambos valores según dónde escribió por última vez
   let valorUsd = "";
   let valorArs = "";
 
@@ -44,7 +41,6 @@ export function Conversor({ dolares }: ConversorProps) {
     valorUsd = isNaN(calc) ? "" : calc.toFixed(2);
   }
 
-  // Formateador visual solo para el texto de abajo
   const formatCurrency = (value: number, currency: string) =>
     new Intl.NumberFormat("es-AR", {
       style: "currency",
@@ -55,7 +51,6 @@ export function Conversor({ dolares }: ConversorProps) {
     <Card className="p-6 md:p-8 bg-white dark:bg-zinc-900 border shadow-sm">
       <div className="flex flex-col space-y-6">
         
-        {/* FILA 1: Selectores de Moneda */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="w-full md:w-2/5">
             {invertido ? (
@@ -109,9 +104,7 @@ export function Conversor({ dolares }: ConversorProps) {
           </div>
         </div>
 
-        {/* FILA 2: Inputs editables por el usuario */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          {/* Input Izquierdo */}
           <div className="w-full md:w-2/5 relative">
             <span className="absolute left-3 top-2.5 text-muted-foreground font-medium">$</span>
             <Input
@@ -130,7 +123,6 @@ export function Conversor({ dolares }: ConversorProps) {
             <span className="text-2xl font-bold text-muted-foreground">=</span>
           </div>
 
-          {/* Input Derecho */}
           <div className="w-full md:w-2/5 relative">
             <span className="absolute left-3 top-2.5 text-muted-foreground font-medium">$</span>
             <Input
@@ -146,7 +138,6 @@ export function Conversor({ dolares }: ConversorProps) {
           </div>
         </div>
         
-        {/* Info extra */}
         <div className="text-center">
           <p className="text-xs text-muted-foreground mt-2">
             Cotización utilizada: {formatCurrency(tasa, "ARS")} (Precio de Venta)
