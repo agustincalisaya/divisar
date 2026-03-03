@@ -28,73 +28,83 @@ export default async function EuroRealPage() {
   ]);
 
   return (
-    <main className="min-h-screen p-4 md:p-8 max-w-5xl mx-auto">
-      <Header />
 
-      <div className="space-y-16"> {/* Mayor espaciado entre Euro y Real */}
-        
-        {/* ================= SECCIÓN: EURO ================= */}
-        {euro && (
-          <section id="euro" className="space-y-6 scroll-mt-6">
-            <h2 className="text-2xl font-bold uppercase">Euro</h2>
-            
-            {/* Precios Compra/Venta */}
-            <div className="flex gap-8">
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
-                <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(euro.compra)}</span>
-              </div>
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
-                <span className="text-2xl font-bold">{formatCurrency(euro.venta)}</span>
-              </div>
-            </div>
+    <div className="min-h-screen flex flex-col">
 
-            {/* Mini Conversor Integrado */}
-            <MiniConversor moneda="EUR" tasa={euro.venta} />
-
-            {/* Gráfico Histórico */}
-            <HistoryChart data={historialEuro} tipo="Euro" />
-
-            <p className="text-xs text-muted-foreground">
-              Última actualización el {formatFecha(euro.fechaActualizacion)}
-            </p>
-          </section>
-        )}
-
-        {/* Separador visual opcional entre secciones */}
-        <hr className="border-border" />
-
-        {/* ================= SECCIÓN: REAL ================= */}
-        {real && (
-          <section id="real" className="space-y-6 scroll-mt-6">
-            <h2 className="text-2xl font-bold uppercase">Real</h2>
-            
-            {/* Precios Compra/Venta */}
-            <div className="flex gap-8">
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
-                <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(real.compra)}</span>
-              </div>
-              <div>
-                <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
-                <span className="text-2xl font-bold">{formatCurrency(real.venta)}</span>
-              </div>
-            </div>
-
-            {/* Mini Conversor Integrado */}
-            <MiniConversor moneda="REAL" tasa={real.venta} />
-
-            {/* Gráfico Histórico */}
-            <HistoryChart data={historialReal} tipo="Real" />
-
-            <p className="text-xs text-muted-foreground">
-              Última actualización el {formatFecha(real.fechaActualizacion)}
-            </p>
-          </section>
-        )}
-
+      <div className="w-full bg-white dark:bg-[#111827] border-b shadow-sm sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 py-4">
+          <Header />
+        </div>
       </div>
-    </main>
+
+      <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
+
+        <div className="space-y-12"> 
+          
+          {/* EURO*/}
+
+          {euro && (
+            <section id="euro" className="space-y-6 scroll-mt-6">
+              <h2 className="text-2xl font-bold uppercase">Euro</h2>
+              
+              {/* Precios Compra/Venta */}
+              <div className="flex gap-8">
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
+                  <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(euro.compra)}</span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
+                  <span className="text-2xl font-bold">{formatCurrency(euro.venta)}</span>
+                </div>
+              </div>
+
+              {/* Mini Conversor Integrado */}
+              <MiniConversor moneda="EUR" tasa={euro.venta} />
+
+              {/* Gráfico Histórico */}
+              <HistoryChart data={historialEuro} tipo="Euro" />
+
+              <p className="text-xs text-muted-foreground">
+                Última actualización el {formatFecha(euro.fechaActualizacion)}
+              </p>
+            </section>
+          )}
+
+          <hr className="border-border" />
+
+          {/* REAL */}
+          
+          {real && (
+            <section id="real" className="space-y-6 scroll-mt-6">
+              <h2 className="text-2xl font-bold uppercase">Real</h2>
+              
+              {/* Precios Compra/Venta */}
+              <div className="flex gap-8">
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
+                  <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(real.compra)}</span>
+                </div>
+                <div>
+                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
+                  <span className="text-2xl font-bold">{formatCurrency(real.venta)}</span>
+                </div>
+              </div>
+
+              {/* Mini Conversor Integrado */}
+              <MiniConversor moneda="REAL" tasa={real.venta} />
+
+              {/* Gráfico Histórico */}
+              <HistoryChart data={historialReal} tipo="Real" />
+
+              <p className="text-xs text-muted-foreground">
+                Última actualización el {formatFecha(real.fechaActualizacion)}
+              </p>
+            </section>
+          )}
+
+        </div>
+      </main>
+    </div>
   );
 }
