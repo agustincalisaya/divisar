@@ -1,4 +1,4 @@
-import { Header } from "@/components/shared/header";
+import { Header } from "@/src/components/shared/header";
 
 export default async function DolarPage() {
  

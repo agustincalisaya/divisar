@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { ArrowRightLeft } from "lucide-react";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
+import { Input } from "@/src/components/ui/input";
+import { Button } from "@/src/components/ui/button";
 
 interface MiniConversorProps {
   moneda: string; 

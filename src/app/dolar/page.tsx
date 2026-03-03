@@ -1,10 +1,12 @@
-import { getDolares, getHistorialDolar } from "@/lib/api";
-import { Dolar } from "@/types/dolar";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Header } from "../../components/shared/header";
-import { Conversor } from "@/components/dolar/conversor";
-import { HistoryChart } from "@/components/dolar/history-chart";
-import { CotizarButton } from "@/components/dolar/cotizar-button";
+import { getDolares, getHistorialDolar } from "@/src/lib/api";
+import { Dolar } from "@/src/types/dolar";
+
+import { Card, CardContent, CardHeader, CardTitle } from "@/src/components/ui/card";
+import { Conversor } from "@/src/components/dolar/conversor";
+import { HistoryChart } from "@/src/components/dolar/history-chart";
+import { CotizarButton } from "@/src/components/dolar/cotizar-button";
+import { Footer } from "@/src/components/shared/footer";
+import { Header } from "@/src/components/shared/header";
 
 // Función auxiliar para formatear la fecha
 function formatFecha(fechaISO: string) {
@@ -50,7 +52,7 @@ export default async function DolarPage() {
 
       <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
         <div className="space-y-12">
-          
+
           {/* DÓLAR OFICIAL */}
 
           {oficial && (
@@ -59,7 +61,7 @@ export default async function DolarPage() {
                 <h2 className="text-2xl font-bold uppercase">Dólar Oficial</h2>
                 <CotizarButton />
               </div>
-              
+
               <div className="flex gap-8 mb-4">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
@@ -82,7 +84,7 @@ export default async function DolarPage() {
           {blue && (
             <section className="space-y-4">
               <h2 className="text-2xl font-bold uppercase">Dólar Blue</h2>
-              
+
               <div className="flex gap-8 mb-4">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
@@ -104,7 +106,7 @@ export default async function DolarPage() {
 
           <section className="space-y-4">
             <h2 className="text-xl font-bold">Otros Tipos de Dólar</h2>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {otrosDolares.map((dolar: Dolar) => (
                 <Card key={dolar.casa} className="hover:shadow-md transition-shadow">
@@ -133,7 +135,7 @@ export default async function DolarPage() {
           </section>
 
           {/* COTIZACIONES */}
-          
+
           <section id="cotizaciones" className="space-y-4 pb-12 scroll-mt-24">
             <h2 className="text-xl font-bold uppercase">Cotizaciones</h2>
             <Conversor dolares={dolares} />
@@ -141,6 +143,9 @@ export default async function DolarPage() {
 
         </div>
       </main>
+
+      <Footer />
+
     </div>
   );
 }
