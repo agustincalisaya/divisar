@@ -7,6 +7,8 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://divis-ar.vercel.app"),
+  
   title: "DivisAR - Cotizaciones en tiempo real",
   description: "Tu herramienta definitiva para seguir las cotizaciones del Dólar (Blue, Oficial, MEP), Euro y Real, y realizar conversiones en tiempo real en Argentina.",
   keywords: ["dólar", "dolar blue", "euro", "real", "cotización", "argentina", "divisas", "dolar mep", "convertidor"],
@@ -15,7 +17,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "DivisAR | Cotizaciones de Divisas en Argentina",
     description: "Seguí en tiempo real la cotización del Dólar, Euro y Real. Convertidor de monedas actualizado al instante.",
-    url: "https://divisar.vercel.app",
+    url: "https://divis-ar.vercel.app",
     siteName: "DivisAR",
     images: [
       {
@@ -44,7 +46,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

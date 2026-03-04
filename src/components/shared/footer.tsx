@@ -37,7 +37,7 @@ export function Footer() {
                                 <li>
                                     <Link
                                         href="/legales-terminos-condiciones"
-                                        className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors break-words"
+                                        className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors break-words"
                                     >
                                         Legales, Términos y condiciones
                                     </Link>
@@ -55,7 +55,7 @@ export function Footer() {
                                         href="https://dolarapi.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1 w-fit"
+                                        className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 w-fit"
                                     >
                                         DolarApi <ExternalLink size={12} className="shrink-0" />
                                     </a>
@@ -65,7 +65,7 @@ export function Footer() {
                                         href="https://argentinadatos.com"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1 w-fit"
+                                        className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 w-fit"
                                     >
                                         ArgentinaDatos <ExternalLink size={12} className="shrink-0" />
                                     </a>
@@ -76,7 +76,7 @@ export function Footer() {
 
                     <div className="space-y-4 max-w-full">
                         <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100 uppercase tracking-wider flex items-center gap-2 transition-colors duration-300">
-                            <Code2 size={16} className="text-cyan-600 dark:text-cyan-400 shrink-0" />
+                            <Code2 size={16} className="text-blue-600 dark:text-blue-400 shrink-0" />
                             Desarrollado por
                         </h4>
 

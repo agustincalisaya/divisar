@@ -26,7 +26,6 @@ export default async function EuroRealPage() {
   ]);
 
   return (
-
     <div className="min-h-screen flex flex-col">
 
       <div className="w-full bg-white dark:bg-[#111827] border-b shadow-sm sticky top-0 z-50">
@@ -35,20 +34,20 @@ export default async function EuroRealPage() {
         </div>
       </div>
 
-      <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full">
+      <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full relative">
 
-        <div className="absolute top-[-10%] left-[-10%] w-96 h-96 bg-cyan-500/20 dark:bg-cyan-500/10 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[30%] right-[-5%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-20%] right-[90%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-[-60%] right-[-10%] w-96 h-96 bg-blue-500/20 dark:bg-blue-600/10 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="hidden dark:block absolute top-[-10%] left-[10%] w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full"></div>
+          <div className="hidden dark:block absolute bottom-[30%] right-[5%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+          <div className="hidden dark:block absolute bottom-[-20%] right-[90%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
+          <div className="hidden dark:block absolute bottom-[-60%] right-[10%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
 
-        <div className="space-y-12"> 
+        <div className="space-y-12 relative z-10"> 
           
           {euro && (
             <section id="euro" className="space-y-6 scroll-mt-6">
               <h2 className="text-2xl font-bold uppercase">Euro</h2>
               
-              <div className="flex gap-8">
+              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-2 md:mt-0">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
                   <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(euro.compra)}</span>
@@ -60,7 +59,6 @@ export default async function EuroRealPage() {
               </div>
 
               <MiniConversor moneda="EUR" tasa={euro.venta} />
-
               <HistoryChart data={historialEuro} tipo="Euro" />
 
               <p className="text-xs text-muted-foreground">
@@ -75,7 +73,7 @@ export default async function EuroRealPage() {
             <section id="real" className="space-y-6 scroll-mt-6">
               <h2 className="text-2xl font-bold uppercase">Real</h2>
               
-              <div className="flex gap-8">
+              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-2 md:mt-0">
                 <div>
                   <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
                   <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(real.compra)}</span>
@@ -87,7 +85,6 @@ export default async function EuroRealPage() {
               </div>
 
               <MiniConversor moneda="REAL" tasa={real.venta} />
-
               <HistoryChart data={historialReal} tipo="Real" />
 
               <p className="text-xs text-muted-foreground">
