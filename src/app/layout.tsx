@@ -14,6 +14,11 @@ export const metadata: Metadata = {
   keywords: ["dólar", "dolar blue", "euro", "real", "cotización", "argentina", "divisas", "dolar mep", "convertidor"],
   authors: [{ name: "Daniel Agustin Calisaya" }],
   
+  // ACÁ ESTÁ EL CÓDIGO DE VERIFICACIÓN DE GOOGLE
+  verification: {
+    google: "JjWImqVi_Za0tt_Wo8Pqj3a9CTVQOcuGdzk3f3DE704",
+  },
+  
   openGraph: {
     title: "DivisAR | Cotizaciones de Divisas en Argentina",
     description: "Seguí en tiempo real la cotización del Dólar, Euro y Real. Convertidor de monedas actualizado al instante.",
