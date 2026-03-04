@@ -11,10 +11,6 @@ export default async function LegalesPage() {
       </div>
 
       <main className="flex-1 px-4 pt-8 pb-16 md:px-8 md:pt-12 max-w-4xl mx-auto w-full relative">
-        
-          <div className="hidden dark:block absolute top-[-10%] left-[10%] w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full"></div>
-          <div className="hidden dark:block absolute bottom-[20%] right-[5%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
-          <div className="hidden dark:block absolute bottom-[50%] right-[50%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
 
         <div className="relative z-10 bg-white dark:bg-slate-900 p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 transition-colors duration-300">
           

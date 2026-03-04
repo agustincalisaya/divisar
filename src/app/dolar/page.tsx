@@ -48,12 +48,11 @@ export default async function DolarPage() {
       </div>
 
       <main className="flex-1 px-4 pt-4 pb-12 md:px-8 md:pt-6 max-w-5xl mx-auto w-full relative">
-        
-          <div className="hidden dark:block absolute top-[-10%] left-[10%] w-96 h-96 bg-cyan-500/10 blur-[120px] rounded-full"></div>
-          <div className="hidden dark:block absolute bottom-[20%] right-[5%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
-          <div className="hidden dark:block absolute bottom-[20%] right-[90%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
-          <div className="hidden dark:block absolute bottom-[60%] right-[10%] w-96 h-96 bg-blue-600/10 blur-[120px] rounded-full"></div>
 
+        <div className="hidden dark:block absolute bottom-[50%] right-[50%] w-96 h-96 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="hidden dark:block absolute bottom-[10%] left-[50%] w-96 h-96 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+        <div className="hidden dark:block absolute bottom-[90%] left-[50%] w-96 h-96 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+        
         <div className="space-y-12 relative z-10">
 
           {oficial && (
