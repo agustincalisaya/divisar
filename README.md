@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💸 DivisAR - Cotizaciones en tiempo real para Argentina
 
-## Getting Started
+**DivisAR** es una plataforma web de alto rendimiento diseñada para el mercado financiero argentino. Proporciona cotizaciones en tiempo real del Dólar (Oficial, Blue, MEP, Cripto), Euro y Real Brasileño, integrando herramientas avanzadas de conversión y análisis de datos.
 
-First, run the development server:
+🚀 **Link del proyecto:** [https://divis-ar.vercel.app](https://divis-ar.vercel.app)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨ Características Principales
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* **Cotizaciones en vivo**: Seguimiento en tiempo real de múltiples tipos de cambio frente al Peso Argentino.
+* **Gráficos Históricos**: Visualización dinámica de la evolución de las divisas en los últimos 30 días mediante gráficos de área interactivos.
+* **Conversor Bidireccional**: Herramienta de conversión fluida entre divisas extranjeras y ARS con alineación visual optimizada.
+* **Diseño Mobile-First**: Interfaz totalmente responsiva y blindada contra desbordes en dispositivos iOS (iPhone).
+* **Modo Oscuro Dinámico**: Implementación de temas visuales que respetan la configuración del sistema del usuario.
+* **SEO & Indexación**: Configuración técnica avanzada con `sitemap.xml`, `robots.txt` y verificación oficial en Google Search Console.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🛠️ Stack Tecnológico
 
-To learn more about Next.js, take a look at the following resources:
+El proyecto utiliza tecnologías de vanguardia para garantizar escalabilidad y performance:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* **Framework**: [Next.js 15](https://nextjs.org/) (App Router & Turbopack)
+* **Lenguaje**: [TypeScript](https://www.typescriptlang.org/) para un desarrollo con tipado fuerte y seguro
+* **Estilos**: [Tailwind CSS](https://tailwindcss.com/) para un diseño moderno y minimalista
+* **Componentes**: [shadcn/ui](https://ui.shadcn.com/) & [Lucide React](https://lucide.dev/)
+* **Gráficos**: [Recharts](https://recharts.org/) para la representación visual de datos históricos
+* **Despliegue**: [Vercel](https://vercel.com/) con CI/CD automatizado
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📑 Aviso Legal
+DivisAR es un servicio exclusivamente informativo. Los datos se obtienen de fuentes públicas y pueden no reflejar las cotizaciones exactas de mercado en tiempo real debido a la volatilidad financiera. Los desarrolladores no se responsabilizan por el uso de la información proporcionada.
