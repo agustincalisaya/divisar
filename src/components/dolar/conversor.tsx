@@ -106,7 +106,7 @@ export function Conversor({ dolares }: ConversorProps) {
 
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="w-full md:w-2/5 relative">
-            <span className="absolute left-3 top-2.5 text-muted-foreground font-medium">$</span>
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium text-lg pointer-events-none">$</span>
             <Input
               type="number"
               value={invertido ? valorArs : valorUsd}
@@ -114,7 +114,7 @@ export function Conversor({ dolares }: ConversorProps) {
                 setOrigen(invertido ? "ars" : "usd");
                 setMonto(e.target.value);
               }}
-              className="pl-8 h-12 text-lg font-bold border-2 focus-visible:ring-primary"
+              className="pl-9 h-12 text-lg font-bold border focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:border-primary"
               placeholder="0.00"
             />
           </div>
@@ -124,7 +124,7 @@ export function Conversor({ dolares }: ConversorProps) {
           </div>
 
           <div className="w-full md:w-2/5 relative">
-            <span className="absolute left-3 top-2.5 text-muted-foreground font-medium">$</span>
+            <span className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground font-medium text-lg pointer-events-none">$</span>
             <Input
               type="number"
               value={invertido ? valorUsd : valorArs}
@@ -132,7 +132,7 @@ export function Conversor({ dolares }: ConversorProps) {
                 setOrigen(invertido ? "usd" : "ars");
                 setMonto(e.target.value);
               }}
-              className="pl-8 h-12 text-lg font-bold border-2 focus-visible:ring-primary"
+              className="pl-9 h-12 text-lg font-bold border focus-visible:ring-1 focus-visible:ring-offset-0 focus-visible:border-primary"
               placeholder="0.00"
             />
           </div>
