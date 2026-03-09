@@ -14,8 +14,8 @@ export function Header() {
   const rutas = [
     { nombre: "Inicio", ruta: "/", isHome: true },
     { nombre: "Dólar", ruta: "/dolar", flagCode: "US" },
-    { nombre: "Euro", ruta: "/euro-real", flagCode: "EU" },
-    { nombre: "Real", ruta: "/euro-real", flagCode: "BR" },
+    { nombre: "Euro", ruta: "/euro", flagCode: "EU" },
+    { nombre: "Real", ruta: "/real", flagCode: "BR" },
   ];
 
   return (
@@ -92,7 +92,6 @@ export function Header() {
                     : "text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50"
                 }`}
               >
-                {/* Condición para mostrar la casita o la bandera en el celu */}
                 {link.isHome ? (
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${isActive ? "bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400" : "bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400"}`}>
                     <Home size={18} />
