@@ -8,8 +8,8 @@ import ReactCountryFlag from "react-country-flag";
 export default function HomePage() {
   const countries = [
     { name: "Dólar", flagCode: "US", href: "/dolar" },
-    { name: "Euro", flagCode: "EU", href: "/euro-real" },
-    { name: "Real", flagCode: "BR", href: "/euro-real" }
+    { name: "Euro", flagCode: "EU", href: "/euro" },
+    { name: "Real", flagCode: "BR", href: "/real" }
   ];
 
   return (

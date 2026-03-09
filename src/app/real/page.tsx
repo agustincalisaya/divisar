@@ -41,32 +41,6 @@ export default async function EuroRealPage() {
         <div className="hidden dark:block absolute bottom-[90%] left-[50%] w-96 h-96 bg-blue-500/20 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="space-y-12 relative z-10"> 
-          
-          {euro && (
-            <section id="euro" className="space-y-6 scroll-mt-6">
-              <h2 className="text-2xl font-bold uppercase">Euro</h2>
-              
-              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-2 md:mt-0">
-                <div>
-                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Compra</span>
-                  <span className="text-2xl font-bold text-[#059669] dark:text-[#10B981]">{formatCurrency(euro.compra)}</span>
-                </div>
-                <div>
-                  <span className="text-sm font-semibold uppercase text-muted-foreground mr-2">Venta</span>
-                  <span className="text-2xl font-bold">{formatCurrency(euro.venta)}</span>
-                </div>
-              </div>
-
-              <MiniConversor moneda="EUR" tasa={euro.venta} />
-              <HistoryChart data={historialEuro} tipo="Euro" />
-
-              <p className="text-xs text-muted-foreground">
-                Última actualización el {formatFecha(euro.fechaActualizacion)}
-              </p>
-            </section>
-          )}
-
-          <hr className="border-border" />
 
           {real && (
             <section id="real" className="space-y-6 scroll-mt-6">
