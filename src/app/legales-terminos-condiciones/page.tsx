@@ -36,6 +36,11 @@ export default async function LegalesPage() {
             </p>
 
             <p>
+              <strong>Análisis por Inteligencia Artificial:
+              </strong> Los resúmenes de mercado y proyecciones de tendencias generados por Kale Analyst AI o cualquier otra herramienta automatizada dentro de DivisAR son elaborados por modelos de lenguaje de IA. Estos análisis tienen un propósito estrictamente educativo e informativo. En ningún caso constituyen asesoramiento financiero, recomendaciones de inversión, ni sugerencias de compra o venta de divisas. Los modelos de IA pueden cometer errores.
+            </p>
+
+            <p>
               El uso de DivisAR implica la aceptación de estos términos y condiciones. DivisAR se reserva el derecho de modificar, suspender o interrumpir el servicio en cualquier momento sin previo aviso.
             </p>
           </div>

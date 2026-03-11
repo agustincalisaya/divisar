@@ -8,6 +8,9 @@ import { CotizarButton } from "@/src/components/dolar/cotizar-button";
 import { Footer } from "@/src/components/shared/footer";
 import { Header } from "@/src/components/shared/header";
 
+import { AiAnalysisButton } from "@/src/components/shared/ai-analysis-button";
+
+
 function formatFecha(fechaISO: string) {
   if (!fechaISO) return "Fecha no disponible";
   const fecha = new Date(fechaISO);
@@ -76,6 +79,7 @@ export default async function DolarPage() {
               <HistoryChart data={historialOficial} tipo="Oficial" />
 
               <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(oficial.fechaActualizacion)}</p>
+              <AiAnalysisButton currencyName="Oficial" historyData={historialOficial} />
             </section>
           )}
 
@@ -97,6 +101,7 @@ export default async function DolarPage() {
               <HistoryChart data={historialBlue} tipo="Blue" />
 
               <p className="text-xs text-muted-foreground">Última actualización el {formatFecha(blue.fechaActualizacion)}</p>
+              <AiAnalysisButton currencyName="Blue" historyData={historialBlue} />
             </section>
           )}
 
