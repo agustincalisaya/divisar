@@ -10,6 +10,8 @@
     "test": "echo \"No tests specified yet\""
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "ai": "^6.0.116",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.575.0",

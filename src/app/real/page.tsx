@@ -4,6 +4,8 @@ import { HistoryChart } from "@/src/components/dolar/history-chart";
 import { Header } from "@/src/components/shared/header";
 import { Footer } from "@/src/components/shared/footer";
 
+import { AiAnalysisButton } from "@/src/components/shared/ai-analysis-button";
+
 function formatFecha(fechaISO: string) {
   if (!fechaISO) return "Fecha no disponible";
   const fecha = new Date(fechaISO);
@@ -18,10 +20,8 @@ const formatCurrency = (value: number) =>
   new Intl.NumberFormat("es-AR", { style: "currency", currency: "ARS" }).format(value);
 
 export default async function EuroRealPage() {
-  const [euro, real, historialEuro, historialReal] = await Promise.all([
-    getCotizacion("eur"),
+  const [real, historialReal] = await Promise.all([
     getCotizacion("brl"),
-    getHistorialCotizacion("eur"),
     getHistorialCotizacion("brl"),
   ]);
 
@@ -63,6 +63,9 @@ export default async function EuroRealPage() {
               <p className="text-xs text-muted-foreground">
                 Última actualización el {formatFecha(real.fechaActualizacion)}
               </p>
+
+              <AiAnalysisButton currencyName="Real" historyData={historialReal} />
+              
             </section>
           )}
 
