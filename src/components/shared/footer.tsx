@@ -23,7 +23,7 @@ export function Footer() {
                             />
                             <LogoLight />
                             <span className="ml-2 px-2 py-0.5 text-xs font-light tracking-wider text-blue-800 bg-blue-400/50 dark:text-blue-400 dark:bg-blue-950/30 border border-blue-200/50 dark:border-blue-800/50 rounded-full">
-                                v1.5.0
+                                v2.0.0
                             </span>
                         </h3>
                         <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed max-w-full md:max-w-xs transition-colors duration-300 break-words">
